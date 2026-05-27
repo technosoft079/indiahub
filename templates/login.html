@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:
+            linear-gradient(rgba(15,23,42,0.9), rgba(15,23,42,0.9)),
+            url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format&fit=crop');
+            background-size:cover;
+            background-position:center;
+            padding:20px;
+            overflow:hidden;
+        }
+
+        /* LOGIN CARD */
+
+        .login-card{
+            width:100%;
+            max-width:450px;
+            background:rgba(15,23,42,0.95);
+            backdrop-filter:blur(12px);
+            border-radius:30px;
+            padding:40px;
+            border:1px solid rgba(255,255,255,0.08);
+            box-shadow:0 15px 40px rgba(0,0,0,0.45);
+        }
+
+        /* TOP BADGE */
+
+        .top-badge{
+            display:inline-block;
+            background:rgba(59,130,246,0.15);
+            border:1px solid rgba(59,130,246,0.3);
+            color:#60a5fa;
+            padding:8px 18px;
+            border-radius:30px;
+            font-size:0.85rem;
+            margin-bottom:18px;
+        }
+
+        /* TITLE */
+
+        .title{
+            color:white;
+            font-size:2rem;
+            font-weight:700;
+            margin-bottom:10px;
+        }
+
+        .subtitle{
+            color:#94a3b8;
+            margin-bottom:35px;
+            line-height:1.7;
+        }
+
+        /* FORM */
+
+        form p{
+            margin-bottom:22px;
+        }
+
+        form label{
+            display:block;
+            margin-bottom:8px;
+            color:#e2e8f0;
+            font-weight:500;
+        }
+
+        form input{
+            width:100%;
+            background:#1e293b;
+            border:1px solid #334155;
+            color:white;
+            padding:14px 16px;
+            border-radius:14px;
+            outline:none;
+            transition:0.3s;
+        }
+
+        form input:focus{
+            border-color:#3b82f6;
+            box-shadow:0 0 0 4px rgba(59,130,246,0.2);
+        }
+
+        /* LOGIN BUTTON */
+
+        .login-btn{
+            width:100%;
+            border:none;
+            padding:14px;
+            border-radius:14px;
+            background:linear-gradient(135deg,#2563eb,#3b82f6);
+            color:white;
+            font-size:1rem;
+            font-weight:600;
+            transition:0.3s;
+            margin-top:10px;
+        }
+
+        .login-btn:hover{
+            transform:translateY(-3px);
+            box-shadow:0 10px 20px rgba(59,130,246,0.35);
+        }
+
+        /* FOOTER TEXT */
+
+        .footer-text{
+            text-align:center;
+            margin-top:25px;
+            color:#94a3b8;
+            font-size:0.95rem;
+        }
+
+        .footer-text a{
+            color:#60a5fa;
+            text-decoration:none;
+            font-weight:500;
+        }
+
+        .footer-text a:hover{
+            text-decoration:underline;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:576px){
+
+            .login-card{
+                padding:28px;
+            }
+
+            .title{
+                font-size:1.7rem;
+            }
+
+            .subtitle{
+                font-size:0.92rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-card">
+
+        <span class="top-badge">
+            Welcome Back
+        </span>
+
+        <h2 class="title">
+            Login Account
+        </h2>
+
+        <p class="subtitle">
+            Access your dashboard, manage news articles, and stay connected with the latest updates.
+        </p>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button class="login-btn">
+                Login
+            </button>
+
+        </form>
+
+        <p class="footer-text">
+            Don’t have an account?
+            <a href="{% url 'register' %}">
+                Register
+            </a>
+        </p>
+
+    </div>
+
+</body>
+
+</html>
