@@ -6,7 +6,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 
 from django.contrib.auth.decorators import login_required
-from urllib3 import request
 
 from .forms import RegisterForm, NewsForm, CommentForm
 
