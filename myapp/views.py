@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 from django.contrib.auth.forms import AuthenticationForm
@@ -12,11 +13,13 @@ from .forms import RegisterForm, NewsForm, CommentForm
 from .models import News, Comment, Category
 
 from django.core.paginator import Paginator
-
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import NewsSerializer
 
+
+def test(request):
+    return HttpResponse("OK")
 
 def home(request):
 
@@ -230,4 +233,4 @@ def category_news(request, id):
         'news': news,
         'categories': categories,
         'selected_category': category
-    })
+    })  

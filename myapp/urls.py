@@ -24,7 +24,7 @@ urlpatterns = [
     path('like/<int:id>/', views.like_news, name='like_news'),
     
     path('api/news/', views.api_news, name='api_news'),
-    
-    path('category/<int:id>/', views.category_news, name='category_news'),
 
+    path('category/<int:id>/', views.category_news, name='category_news'),
+    
 ]
